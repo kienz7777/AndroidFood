@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Red"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txt_NameStore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Bún Đậu Cô Chang"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_marginBottom="7dp"
+                android:id="@+id/txt_ProvinceShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_NameStore"
+                android:layout_centerHorizontal="true"
+                android:text="Đồng Nai"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="5sp"
+            android:padding="10dp"
+
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+
+                    android:id="@+id/txt_Open"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHƯA MỞ CỬA"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+                <TextView
+
+                    android:id="@+id/txt_OpenTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_Open"
+                    android:paddingTop="5dp"
+                    android:text="9:00-21:00"
+                    android:textSize="13sp"
+                    android:textColor="@android:color/black"
+
+                    />
+            </RelativeLayout>
+
+            <Button
+                android:width="110dp"
+                android:text="Liên hệ"
+                android:background="#bdc3c7"
+                android:id="@+id/btn_Contact"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="13sp"
+                android:padding="5sp"
+                android:drawableLeft="@drawable/contacts"
+                android:layout_alignParentRight="true"
+
+                />
+
+        </RelativeLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.6dp"
+            android:background="@android:color/darker_gray"/>
+        <RelativeLayout
+            android:padding="10dp"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout6"
+
+            >
+
+            <TextView
+                android:id="@+id/txt_Address"
+                android:drawableLeft="@drawable/pin"
+                android:drawablePadding="10dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Chợ Bùi Đức, Quốc lộ 1A, P.Tam Hòa, Tp.Biên Hòa, Đồng Nai">
+            </TextView>
+            
+            <TextView
+                android:id="@+id/txt_Distance"
+                android:textStyle="bold"
+                android:layout_width="300dp"
+                android:drawableLeft="@drawable/circle"
+                android:drawablePadding="10dp"
+                android:paddingTop="15dp"
+                android:textColor="#2ecc71"
+                android:layout_below="@id/txt_Address"
+                android:layout_height="wrap_content"
+                android:text="4.2km (từ vị trí hiện tại)">
+            </TextView>
+            <TextView
+                android:id="@+id/txt_Catogery"
+                android:layout_width="300dp"
+                android:drawableLeft="@drawable/spoon"
+                android:paddingTop="15dp"
+                android:drawablePadding="10dp"
+                android:layout_below="@id/txt_Distance"
+                android:layout_height="wrap_content"
+                android:text="Quán Ăn - Món Việt">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_Money"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_Catogery"
+                android:paddingTop="15dp"
+                android:drawableLeft="@drawable/money"
+                android:drawablePadding="10dp"
+                android:text="10000đ - 160000đ"></TextView>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.6dp"
+            android:background="#bdc3c7"/>
+        <RelativeLayout
+            android:padding="10dp"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/ic_Check"
+                android:layout_marginRight="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/correct" />
+            <ImageView
+                android:id="@+id/ic_Wifi"
+                android:layout_marginRight="32dp"
+                android:layout_toRightOf="@id/ic_Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/wifi" />
+            <ImageView
+                android:id="@+id/ic_Delivery"
+                android:layout_toRightOf="@id/ic_Wifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/delivery" />
+
+        </RelativeLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.6dp"
+            android:background="#bdc3c7"/>
+        <RelativeLayout
+            android:background="#FFFFFF"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_Menu"
+                android:drawableLeft="@drawable/menu"
+                android:drawablePadding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thực Đơn">
+            </TextView>
+        </RelativeLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.65dp"
+            android:background="#bdc3c7"/>
+        <RelativeLayout
+            android:background="#FFFFFF"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_AddWifi"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/wifi"
+                android:drawablePadding="8dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#3498db"
+                android:text="Thêm Wifi">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txt_Pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="Nhập mật khẩu" />
+        </RelativeLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.6dp"
+            android:background="#bdc3c7"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/recyclerview_ids"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</ScrollView>

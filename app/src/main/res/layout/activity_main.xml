@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Red"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/search_Index"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/search"
+            android:drawablePadding="20px"
+            android:hint="Tìm địa điểm, món ăn, địa chỉ,.."
+            android:paddingLeft="25px"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/txt_Province"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/search_Index"
+            android:layout_alignRight="@+id/search_Index"
+            android:layout_margin="20dp"
+            android:text="Đồng Nai"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="#ffffff"
+            android:id="@+id/recyclerview_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

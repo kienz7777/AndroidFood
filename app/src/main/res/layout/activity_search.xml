@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Red"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgv_Back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/back" />
+
+        <EditText
+            android:id="@+id/edt_Searched"
+            android:layout_width="345dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@+id/btn_Back"
+            android:layout_toRightOf="@+id/btn_Back"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/search"
+            android:drawablePadding="20px"
+            android:padding="5dp"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="68dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/search_Index"
+            android:layout_alignTop="@+id/edt_Searched"
+            android:layout_alignEnd="@+id/edt_Searched"
+            android:layout_alignRight="@+id/edt_Searched"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="88dp"
+            android:layout_marginRight="88dp"
+            android:layout_marginBottom="20dp"
+            android:text="Địa Điểm"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/search_Index"
+            android:layout_alignTop="@+id/edt_Searched"
+            android:layout_alignEnd="@+id/edt_Searched"
+            android:layout_alignRight="@+id/edt_Searched"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="67dp"
+            android:layout_marginRight="67dp"
+            android:layout_marginBottom="20dp"
+            android:text="ở"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_Provincess"
+            android:gravity="right"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/search_Index"
+            android:layout_alignTop="@+id/edt_Searched"
+            android:layout_alignEnd="@+id/edt_Searched"
+            android:layout_alignRight="@+id/edt_Searched"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="20dp"
+            android:text="Đồng Nai"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="#E6E2E4">
+            <Button
+                android:id="@+id/defaultBtn"
+                android:layout_weight="1"
+                android:background="#E6E2E4"
+                android:text="Đúng nhất"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <Button
+                android:id="@+id/popularBtn"
+                android:layout_weight="1"
+                android:text="Phổ biến"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E6E2E4"/>
+            <Button
+                android:id="@+id/nearBtn"
+                android:layout_weight="1"
+                android:text="Gần tôi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E6E2E4"/>
+            <Button
+                android:id="@+id/filterBtn"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:text="Bộ lọc"
+                android:layout_centerHorizontal="true"
+                android:drawableRight="@drawable/filter"
+                android:paddingRight="15dp"
+                android:layout_height="match_parent"
+                android:background="#E6E2E4"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="0.08"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_idss"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
