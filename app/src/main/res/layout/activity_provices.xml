@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="Chọn Tỉnh thành"
             android:textColor="#ffffff"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:padding="15dp"/>
         <TextView

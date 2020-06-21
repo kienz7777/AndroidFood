@@ -61,8 +61,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("Thumb",mData.get(position).getThumbnail());
                 intent.putExtra("Address",mData.get(position).getAddress());
                 intent.putExtra("Price",mData.get(position).getPrice());
-                intent.putExtra("AccountWifi",mData.get(position).getAccountWifi());
-                intent.putExtra("PassWifi",mData.get(position).getPassWifi());
+                intent.putExtra("Lat",mData.get(position).getLatiTude());
+                intent.putExtra("Long",mData.get(position).getLongiTude());
                 mContext.startActivity(intent);
             }
         });

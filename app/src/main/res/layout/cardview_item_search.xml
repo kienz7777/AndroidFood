@@ -55,21 +55,9 @@
                         android:layout_height="30dp"
                         android:text="Canh bún dì ba"
                         android:textColor="#2d2d2d"
-                        android:textSize="13dp"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
-                    <TextView
-                        android:id="@+id/score"
-                        android:layout_gravity="end"
-                        android:layout_weight="1"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="5dp"
-                        android:textAlignment="viewEnd"
-                        android:text="6.3"
-                        android:textColor="#4CAD50"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -87,26 +75,14 @@
                         android:id="@+id/txt_address"
                         android:layout_weight="9"
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="45dp"
                         android:paddingLeft="5dp"
                         android:paddingTop="5dp"
-                        android:text="Chợ Bùi đức lộ, quốc lộ,.... 1"
+                        android:text="Cafe Kienz7777"
                         android:textColor="#ACABAB"
-                        android:textSize="10dp"
+                        android:textSize="15dp"
                         android:textStyle="normal" />
-                    <TextView
-                        android:id="@+id/distance"
-                        android:layout_weight="1"
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:paddingTop="5dp"
-                        android:layout_gravity="end"
-                        android:textAlignment="viewEnd"
-                        android:paddingRight="5dp"
-                        android:text="4.7km"
-                        android:textColor="#ACABAB"
-                        android:textSize="13dp"
-                        android:textStyle="bold" />
+
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -129,33 +105,10 @@
                         android:paddingTop="5dp"
                         android:text="Quán ăn"
                         android:textColor="#2d2d2d"
-                        android:textSize="13dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:drawableLeft="@drawable/comment"
-                        android:padding="5dp"
-                        android:drawablePadding="5dp"
                         android:textSize="15dp"
-                        android:id="@+id/photo"
-                        android:layout_weight="1"
-                        android:layout_width="60dp"
-                        android:layout_height="match_parent"
-                        android:text="18"
-                        android:textColor="#ACABAB"
+                        android:textStyle="bold" />
 
-                        android:textStyle="bold" />
-                    <TextView
-                        android:id="@+id/comment"
-                        android:layout_weight="1"
-                        android:layout_width="60dp"
-                        android:drawableLeft="@drawable/photography"
-                        android:padding="5dp"
-                        android:drawablePadding="5dp"
-                        android:textSize="15dp"
-                        android:layout_height="match_parent"
-                        android:text="34"
-                        android:textColor="#ACABAB"
-                        android:textStyle="bold" />
+
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -170,10 +123,9 @@
 
                     <ImageView
                         android:layout_weight="1"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:scaleType="fitXY"
-
                         android:src="@drawable/foody"
                         />
                     <TextView
@@ -182,10 +134,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:paddingLeft="5dp"
-                        android:paddingTop="5dp"
                         android:text="Mã k...n mãi"
                         android:textColor="#2d2d2d"
-                        android:textSize="13dp"
+                        android:textSize="14dp"
                         android:textStyle="normal" />
 
                 </LinearLayout>

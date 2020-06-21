@@ -78,8 +78,8 @@ public class DatabaseAccess {
             food.setProvince(cursor.getString(6));
             food.setTypeStore(cursor.getString(7));
             food.setPrice(cursor.getString(8));
-            food.setAccountWifi(cursor.getString(9));
-            food.setPassWifi(cursor.getString(10));
+            food.setLatiTude(cursor.getDouble(9));
+            food.setLongiTude(cursor.getDouble(10));
 
             list.add(food);
             cursor.moveToNext();

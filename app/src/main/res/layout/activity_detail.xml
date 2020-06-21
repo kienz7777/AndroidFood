@@ -24,7 +24,7 @@
                 android:layout_marginTop="7dp"
                 android:text="Bún Đậu Cô Chang"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_centerHorizontal="true"
                 android:textStyle="bold" />
 
@@ -38,7 +38,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="Đồng Nai"
                 android:textColor="#FFFFFF"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
 
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:text="CHƯA MỞ CỬA"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="13sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
                 <TextView
 
@@ -75,7 +75,7 @@
                     android:layout_below="@id/txt_Open"
                     android:paddingTop="5dp"
                     android:text="9:00-21:00"
-                    android:textSize="13sp"
+                    android:textSize="15sp"
                     android:textColor="@android:color/black"
 
                     />
@@ -88,7 +88,7 @@
                 android:id="@+id/btn_Contact"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:textSize="13sp"
+                android:textSize="15sp"
                 android:padding="5sp"
                 android:drawableLeft="@drawable/contacts"
                 android:layout_alignParentRight="true"
@@ -202,7 +202,7 @@
         </RelativeLayout>
         <View
             android:layout_width="fill_parent"
-            android:layout_height="0.65dp"
+            android:layout_height="0.6dp"
             android:background="#bdc3c7"/>
         <RelativeLayout
             android:background="#FFFFFF"

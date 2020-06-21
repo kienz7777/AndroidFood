@@ -23,7 +23,7 @@
             android:id="@+id/food_title_id"
             android:textColor="#2d2d2d"
             android:paddingTop="5dp"
-            android:textSize="13dp"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -31,7 +31,7 @@
         <TextView
             android:id="@+id/food_des_id"
             android:textColor="#2d2d2d"
-            android:textSize="13dp"
+            android:textSize="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Book Title"/>

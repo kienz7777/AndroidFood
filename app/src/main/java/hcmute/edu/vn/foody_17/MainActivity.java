@@ -25,15 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        lstFood = new ArrayList<>();
-//        lstFood.add(new Food("Bánh Mì","Category Book","Mã khuyến mại, có người mới đặt giao tận nơi",R.drawable.banhmi));
-//        lstFood.add(new Food("Trà Sữa Lu","Category Book","Mã khuyến mại, có người mới đặt giao tận nơi",R.drawable.trasualu));
-//        lstFood.add(new Food("Bún riêu cô bảo","Category Book","Mã khuyến mại, có người mới đặt giao tận nơi",R.drawable.bunrieu));
-//        lstFood.add(new Food("Heo cuộn sốt me","Category Book","Mã khuyến mại, có người mới đặt giao tận nơi",R.drawable.heocuon));
-//        lstFood.add(new Food("Chân gà chiên nước nắm","Category Book","Mã khuyến mại, có người mới đặt giao tận nơi",R.drawable.changachien));
-//        lstFood.add(new Food("Ngũ ốc cô phú","Category Book","Mã khuyến mại, có người mới đặt giao tận nơi",R.drawable.nguoc));
-//        lstFood.add(new Food("Cháo hành chí phèo","Category Book","Description",R.drawable.chao));
-//        lstFood.add(new Food("Pizza Kienz","Category Book","Mã khuyến mại, có người mới đặt giao tận nơi",R.drawable.piza));
 
         lstFood = DatabaseAccess.getInstance(MainActivity.this).getListFood();
 

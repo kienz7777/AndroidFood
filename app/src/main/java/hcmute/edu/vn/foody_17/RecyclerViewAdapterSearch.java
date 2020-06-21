@@ -62,6 +62,10 @@ public class RecyclerViewAdapterSearch extends RecyclerView.Adapter<RecyclerView
                 intent.putExtra("Address",mDataFilter.get(position).getAddress());
                 intent.putExtra("Province",mDataFilter.get(position).getProvince());
                 intent.putExtra("Thumb",mDataFilter.get(position).getThumbnail());
+                intent.putExtra("Address",mData.get(position).getAddress());
+                intent.putExtra("Price",mData.get(position).getPrice());
+                intent.putExtra("Lat",mData.get(position).getLatiTude());
+                intent.putExtra("Long",mData.get(position).getLongiTude());
                 mContext.startActivity(intent);
             }
         });

@@ -9,13 +9,13 @@ public class Food {
     private String Province;
     private String TypeStore;
     private String Price;
-    private String AccountWifi;
-    private String PassWifi;
+    private Double LatiTude;
+    private Double LongiTude;
 
     public Food() {
     }
 
-    public Food(String title, String category, String description, String thumbnail, String address, String province, String typeStore, String price, String accountWifi, String passWifi) {
+    public Food(String title, String category, String description, String thumbnail, String address, String province, String typeStore, String price, Double latiTude, Double longiTude) {
         Title = title;
         Category = category;
         Description = description;
@@ -24,8 +24,8 @@ public class Food {
         Province = province;
         TypeStore = typeStore;
         Price = price;
-        AccountWifi = accountWifi;
-        PassWifi = passWifi;
+        LatiTude = latiTude;
+        LongiTude = longiTude;
     }
 
     public String getTitle() {
@@ -76,13 +76,13 @@ public class Food {
 
     public void setPrice(String price){ Price = price;}
 
-    public String getAccountWifi(){return AccountWifi;}
+    public Double getLatiTude(){return LatiTude;}
 
-    public void setAccountWifi(String accountWifi){ AccountWifi = accountWifi;}
+    public void setLatiTude(Double latiTude){ LatiTude = latiTude;}
 
-    public String getPassWifi(){return PassWifi;}
+    public Double getLongiTude(){return LongiTude;}
 
-    public void setPassWifi(String passWifi){ PassWifi = passWifi;}
+    public void setLongiTude(Double longiTude){ LongiTude = longiTude;}
 
 
 }
