@@ -1,6 +1,9 @@
 package hcmute.edu.vn.foody_17;
 
+import android.content.Intent;
+
 public class Food {
+    private Integer IdFood;
     private String Title;
     private String Category;
     private String Description;
@@ -15,7 +18,8 @@ public class Food {
     public Food() {
     }
 
-    public Food(String title, String category, String description, String thumbnail, String address, String province, String typeStore, String price, Double latiTude, Double longiTude) {
+    public Food(Integer idFood,String title, String category, String description, String thumbnail, String address, String province, String typeStore, String price, Double latiTude, Double longiTude) {
+        IdFood = idFood;
         Title = title;
         Category = category;
         Description = description;
@@ -27,6 +31,9 @@ public class Food {
         LatiTude = latiTude;
         LongiTude = longiTude;
     }
+    public Integer getIdFood(){return IdFood;}
+
+    public void setIdFood(Integer idFood){IdFood = idFood;}
 
     public String getTitle() {
         return Title;

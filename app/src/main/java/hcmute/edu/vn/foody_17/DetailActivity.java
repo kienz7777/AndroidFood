@@ -51,15 +51,20 @@ public class DetailActivity extends AppCompatActivity {
 
 
         //Menu
+        final int id = intent.getIntExtra("IdFood",0);
+
         txt_Menu = (TextView) findViewById(R.id.txt_Menu);
         txt_Menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetailActivity.this,MenuActivity.class);
+                intent.putExtra("IdFood",id);
                 startActivity(intent);
             }
         });
 
+        String id1 = Integer.toString(id);
+        Toast.makeText(getApplicationContext(),id1,Toast.LENGTH_SHORT).show();
 
         //Wifi
         txt_AddWifi = (TextView) findViewById(R.id.txt_AddWifi);

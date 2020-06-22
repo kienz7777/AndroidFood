@@ -65,11 +65,12 @@ public class DatabaseAccess {
     public List<Food> getListFood() {
         this.database = openHelper.getReadableDatabase();
         List<Food> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM 'Food'", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Food", null);
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
             Food food = new Food();
+            food.setIdFood(cursor.getInt(0));
             food.setTitle(cursor.getString(1));
             food.setCategory(cursor.getString(2));
             food.setDescription(cursor.getString(3));
@@ -82,6 +83,53 @@ public class DatabaseAccess {
             food.setLongiTude(cursor.getDouble(10));
 
             list.add(food);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+
+    public List<Food> getListSearchFood(String pro){
+        this.database = openHelper.getReadableDatabase();
+        List<Food> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM Food WHERE province = ?", new String[]{pro});
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+            Food food = new Food();
+            food.setIdFood(cursor.getInt(0));
+            food.setTitle(cursor.getString(1));
+            food.setCategory(cursor.getString(2));
+            food.setDescription(cursor.getString(3));
+            food.setThumbnail(cursor.getString(4));
+            food.setAddress(cursor.getString(5));
+            food.setProvince(cursor.getString(6));
+            food.setTypeStore(cursor.getString(7));
+            food.setPrice(cursor.getString(8));
+            food.setLatiTude(cursor.getDouble(9));
+            food.setLongiTude(cursor.getDouble(10));
+
+            list.add(food);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+
+    public List<MenuGroup> getListMenuGroup(int id){
+        this.database = openHelper.getReadableDatabase();
+        List<MenuGroup> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT MenuGroup.idFood AS idGroup,namegroup,image,Food.idFood AS idFoods  FROM MenuGroup INNER JOIN Food ON MenuGroup.idFood = Food.idFood AND Food.idFood = ?", new String[]{String.valueOf(id)});
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()){
+            MenuGroup menuGroup = new MenuGroup();
+            menuGroup.setIdMenuGroup(cursor.getInt(0));
+            menuGroup.setNameGroup(cursor.getString(1));
+            menuGroup.setImage(cursor.getString(2));
+            menuGroup.setIdFood(cursor.getInt(3));
+
+            list.add(menuGroup);
             cursor.moveToNext();
         }
         cursor.close();

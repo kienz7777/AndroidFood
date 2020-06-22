@@ -58,6 +58,7 @@ public class RecyclerViewAdapterSearch extends RecyclerView.Adapter<RecyclerView
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,DetailActivity.class);
+                intent.putExtra("IdFood",mData.get(position).getIdFood());
                 intent.putExtra("Title",mDataFilter.get(position).getTitle());
                 intent.putExtra("Address",mDataFilter.get(position).getAddress());
                 intent.putExtra("Province",mDataFilter.get(position).getProvince());

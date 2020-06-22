@@ -41,7 +41,9 @@ public class SearchActivity extends AppCompatActivity {
 //        lstSearch.add(new SearchFood("Cháo hành chí phèo","A94B Hùng Vương, Thị xã Long Khánh, Đồng Nai","Quán ăn","Đồng Nai",R.drawable.chao));
 //        lstSearch.add(new SearchFood("Pizza kienz","A94B Hùng Vương, Thị xã Long Khánh, Đồng Nai","Quán ăn","Đồng Nai",R.drawable.piza));
 
-        lstSearch = DatabaseAccess.getInstance(SearchActivity.this).getListFood();
+        Intent i = getIntent();
+
+        lstSearch = DatabaseAccess.getInstance(SearchActivity.this).getListSearchFood(i.getStringExtra("province"));
 
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview_idss);
@@ -50,7 +52,7 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setAdapter(recycleViewAdapter);
 
 
-        Intent i = getIntent();
+
 
         //Set textView cho tỉnh
         txt_Provincess = (TextView) findViewById(R.id.txt_Provincess);
@@ -66,13 +68,13 @@ public class SearchActivity extends AppCompatActivity {
 
 
         //Xóa các food khác tỉnh
-        for (int x = 0; x < lstSearch.size(); x++){
-           if(!txt_Provincess.getText().toString().equals(lstSearch.get(x).getProvince())){
-                lstSearch.remove(x);
-                x--;
-            }
-
-        }
+//        for (int x = 0; x < lstSearch.size(); x++){
+//           if(!txt_Provincess.getText().toString().equals(lstSearch.get(x).getProvince())){
+//                lstSearch.remove(x);
+//                x--;
+//            }
+//
+//        }
 
 
         //Toast.makeText(getApplicationContext(),String.valueOf(c),Toast.LENGTH_SHORT).show();
