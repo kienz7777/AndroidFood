@@ -59,12 +59,13 @@ public class DetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DetailActivity.this,MenuActivity.class);
                 intent.putExtra("IdFood",id);
+                intent.putExtra("Title",txt_Name.getText().toString());
                 startActivity(intent);
             }
         });
 
-        String id1 = Integer.toString(id);
-        Toast.makeText(getApplicationContext(),id1,Toast.LENGTH_SHORT).show();
+//        String id1 = Integer.toString(id);
+//        Toast.makeText(getApplicationContext(),id1,Toast.LENGTH_SHORT).show();
 
         //Wifi
         txt_AddWifi = (TextView) findViewById(R.id.txt_AddWifi);
