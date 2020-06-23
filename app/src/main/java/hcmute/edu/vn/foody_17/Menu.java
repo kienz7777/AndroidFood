@@ -5,6 +5,10 @@ public class Menu {
     private String Price;
 
 
+    public Menu(){
+
+    }
+
     public Menu(String nameItem,String price){
         NameItem = nameItem;
         Price = price;

@@ -119,17 +119,35 @@ public class DatabaseAccess {
     public List<MenuGroup> getListMenuGroup(int id){
         this.database = openHelper.getReadableDatabase();
         List<MenuGroup> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT MenuGroup.idFood AS idGroup,namegroup,image,Food.idFood AS idFoods  FROM MenuGroup INNER JOIN Food ON MenuGroup.idFood = Food.idFood AND Food.idFood = ?", new String[]{String.valueOf(id)});
+        Cursor cursor = database.rawQuery("SELECT MenuGroup.idFood AS idGroup,namegroup,image,Food.idFood,MenuGroup.idMenuGroup AS idFoods  FROM MenuGroup INNER JOIN Food ON MenuGroup.idFood = Food.idFood AND Food.idFood = ?", new String[]{String.valueOf(id)});
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()){
             MenuGroup menuGroup = new MenuGroup();
-            menuGroup.setIdMenuGroup(cursor.getInt(0));
             menuGroup.setNameGroup(cursor.getString(1));
             menuGroup.setImage(cursor.getString(2));
             menuGroup.setIdFood(cursor.getInt(3));
+            menuGroup.setIdMenuGroup(cursor.getInt(4));
 
             list.add(menuGroup);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+
+    public  List<Menu> getListMenuItem(int id){
+        this.database = openHelper.getReadableDatabase();
+        List<Menu> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT nameitem,MenuItem.price,MenuItem.idMenuItem AS idMenuItems,MenuGroup.idMenuGroup AS idMenuGroups FROM MenuItem INNER JOIN MenuGroup ON MenuItem.idMenuGroup = MenuGroup.idMenuGroup AND MenuGroup.idMenuGroup = ?", new String[]{String.valueOf(id)});
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()){
+            Menu menu = new Menu();
+            menu.setNameItem(cursor.getString(0));
+            menu.setPrice(cursor.getString(1));
+
+            list.add(menu);
             cursor.moveToNext();
         }
         cursor.close();

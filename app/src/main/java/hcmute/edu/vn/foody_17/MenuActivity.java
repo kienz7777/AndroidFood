@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MenuActivity extends AppCompatActivity {
-    //List<MenuGroup> menuGroups;
+    List<Menu> menu;
     private ExpandableListView listView;
     private ExpandableListAdapter listAdapter;
     private List<String> listDataHeader;
@@ -38,7 +38,7 @@ public class MenuActivity extends AppCompatActivity {
         //String id1 = Integer.toString(id);
         //Toast.makeText(getApplicationContext(),id1, Toast.LENGTH_SHORT).show();
 
-        //menuGroups = DatabaseAccess.getInstance(MenuActivity.this).getListMenuGroup(id);
+        //menu = DatabaseAccess.getInstance(MenuActivity.this).getListMenuItem(1);
 
         listView = (ExpandableListView) findViewById(R.id.exp_Menu);
         initData(idf);
@@ -66,6 +66,7 @@ public class MenuActivity extends AppCompatActivity {
 
     private void initData(int id) {
         List<MenuGroup> menuGroups;
+        List<Menu> menu;
         listDataHeader = new ArrayList<>();
         listHash = new HashMap<>();
 
@@ -79,13 +80,24 @@ public class MenuActivity extends AppCompatActivity {
 //        listDataHeader.add("Bún Đậu");
 //        listDataHeader.add("Món Thêm");
 
-        List<Menu> bo = new ArrayList<>();
+//        List<Menu> bo = new ArrayList<>();
+//
+//        bo.add(new Menu("Bò Mỹ Nhúng Ớt Vừa","119,000"));
+//        bo.add(new Menu("Bò Mỹ Nhúng Ớt Vừa","119,000"));
 
-        bo.add(new Menu("Bò Mỹ Nhúng Ớt Vừa","119,000"));
-        bo.add(new Menu("Bò Mỹ Nhúng Ớt Vừa","119,000"));
 
+        for(int y = 0; y < menuGroups.size(); y++){
 
-        listHash.put(listDataHeader.get(0),bo);
+            menu = DatabaseAccess.getInstance(MenuActivity.this).getListMenuItem(menuGroups.get(y).getIdMenuGroup());
+
+            if(menu == null){
+                return;
+            }
+            listHash.put(listDataHeader.get(y),menu);
+
+        }
+
+//        listHash.put(listDataHeader.get(0),bo);
 
     }
 }
