@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -45,13 +47,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //set text cho tỉnh
-        Intent i = getIntent();
-        if(i.getStringExtra("data") != null){
-            txtProvince.setText(i.getStringExtra("data"));
+//        Intent i = getIntent();
+//        if(i.getStringExtra("data") != null){
+//            txtProvince.setText(i.getStringExtra("data"));
+//
+//        }
+
+        //set text cho tỉnh
+        SharedPreferences sharedPref = this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        String datas = sharedPref.getString("data", "Đồng Nai");
+
+        if(datas != null){
+            txtProvince.setText(datas);
 
         }
-
-
 
         edt_Search = (EditText) findViewById(R.id.search_Index);
         edt_Search.setOnKeyListener(new View.OnKeyListener() {

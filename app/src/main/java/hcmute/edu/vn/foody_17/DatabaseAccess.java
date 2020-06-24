@@ -153,4 +153,22 @@ public class DatabaseAccess {
         cursor.close();
         return list;
     }
+
+    public List<Province> getListProvince(){
+        this.database = openHelper.getReadableDatabase();
+        List<Province> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM Province", null);
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+            Province province = new Province();
+            province.setName(cursor.getString(1));
+
+
+            list.add(province);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
 }

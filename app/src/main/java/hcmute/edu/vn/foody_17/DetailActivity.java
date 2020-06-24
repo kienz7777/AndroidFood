@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ import java.text.DecimalFormat;
 public class DetailActivity extends AppCompatActivity {
 
     TextView txt_Name,txt_Address,txt_ProvinceShow,txt_AddWifi,txt_Money;
-    TextView txt_Menu;
+    TextView txt_Menu,txt_Pass;
     TextView txt_Distance;
     LocationManager locationManager;
     private static final int REQUEST_LOCATION = 1;
@@ -38,6 +39,7 @@ public class DetailActivity extends AppCompatActivity {
         txt_Address = (TextView) findViewById(R.id.txt_Address);
         txt_ProvinceShow = (TextView) findViewById(R.id.txt_ProvinceShow);
         txt_Money = (TextView) findViewById(R.id.txt_Money);
+        txt_Pass = (TextView) findViewById(R.id.txt_Pass);
 
         // Recieve data
         Intent intent = getIntent();
@@ -82,8 +84,10 @@ public class DetailActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(!mAccount.getText().toString().isEmpty() && !mPassword.getText().toString().isEmpty()){
-                            Toast.makeText(DetailActivity.this,"Update Successful",Toast.LENGTH_SHORT).show();
-
+                            //Toast.makeText(DetailActivity.this,"Update Successful",Toast.LENGTH_SHORT).show();
+                            txt_AddWifi.setText(mAccount.getText().toString());
+                            txt_Pass.setText(mPassword.getText().toString());
+                            txt_Pass.setTextColor(Color.parseColor("#3498db"));
                         }
                         else{
                             Toast.makeText(DetailActivity.this,"Update failed",Toast.LENGTH_SHORT).show();

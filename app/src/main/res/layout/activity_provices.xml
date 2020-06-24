@@ -37,6 +37,12 @@
             android:textSize="18sp"
             android:padding="15dp"/>
 
+        <TextView
+            android:id="@+id/txt_Data"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="TextView" />
+
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -53,14 +59,24 @@
             android:paddingLeft="25px"
             android:textSize="13sp" />
     </RelativeLayout>
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+<!--        <ListView-->
+<!--            android:id="@+id/list_Province"-->
+<!--            android:clickable="true"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"/>-->
+<!--    </RelativeLayout>-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ListView
-            android:id="@+id/list_Province"
-            android:clickable="true"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="#ffffff"
+            android:id="@+id/recyclerview_pro"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </RelativeLayout>
 
 </LinearLayout>

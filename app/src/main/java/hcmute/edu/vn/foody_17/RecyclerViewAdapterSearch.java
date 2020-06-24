@@ -62,7 +62,7 @@ public class RecyclerViewAdapterSearch extends RecyclerView.Adapter<RecyclerView
                 intent.putExtra("Title",mDataFilter.get(position).getTitle());
                 intent.putExtra("Address",mDataFilter.get(position).getAddress());
                 intent.putExtra("Province",mDataFilter.get(position).getProvince());
-                intent.putExtra("Thumb",mDataFilter.get(position).getThumbnail());
+                //intent.putExtra("Thumb",mDataFilter.get(position).getThumbnail());
                 intent.putExtra("Address",mData.get(position).getAddress());
                 intent.putExtra("Price",mData.get(position).getPrice());
                 intent.putExtra("Lat",mData.get(position).getLatiTude());
@@ -75,43 +75,100 @@ public class RecyclerViewAdapterSearch extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public int getItemCount() {
-//        return mData.size();
+        //return mData.size();
         return mDataFilter.size();
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
     public Filter getFilter() {
-        return new Filter() {
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence constraint) {
+//                String Key = constraint.toString();
+//                List<Food> lstFiltered = new ArrayList<>();
+//
+//                if(Key.isEmpty()){
+//                    mDataFilter = (mData);
+//                }
+//                else{
+//
+//                    if(mDataFilter != null){
+//                        List<Food> lst = new ArrayList<>();
+//                        mDataFilter = lst;
+//                    }
+//
+//                    String key = constraint.toString().toLowerCase().trim();
+//
+//
+//                    for(Food row : mData){
+//
+//                        if(row.getTitle().toLowerCase().contains(key)){
+//
+//                                lstFiltered.add(row);
+//                        }
+//
+//                    }
+//
+//                    mDataFilter.addAll(lstFiltered);
+//
+//                }
+//
+//                FilterResults filterResults = new FilterResults();
+//                filterResults.values = mDataFilter;
+//                return  filterResults;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence constraint, FilterResults results) {
+//
+//                mDataFilter=((List<Food>) results.values);
+//                notifyDataSetChanged();
+//            }
+//        };
+
+        return new Filter(){
             @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                String Key = constraint.toString();
-                if(Key.isEmpty()){
-                    mDataFilter = mData;
-                }
-                else{
-                    List<Food> lstFiltered = new ArrayList<>();
+            protected FilterResults performFiltering(CharSequence constraint){
+                List<Food> lstFiltered = new ArrayList<>();
+
+                if (constraint == null || constraint.length() == 0){
+
+                    lstFiltered.addAll(mData);
+                }else {
+                    String key = constraint.toString().toLowerCase().trim();
+
                     for(Food row : mData){
-                        if(row.getTitle().toLowerCase().contains(Key.toLowerCase())){
+                        if(row.getTitle().toLowerCase().contains(key)){
                             lstFiltered.add(row);
                         }
                     }
 
-                    mDataFilter = lstFiltered;
-
                 }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = mDataFilter;
-                return  filterResults;
+                FilterResults results = new FilterResults();
+                results.values = lstFiltered;
+                return results;
             }
 
             @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                mDataFilter = (List<Food>) results.values;
+            protected void publishResults(CharSequence constraint, FilterResults results){
+                mDataFilter.clear();
+                mDataFilter.addAll((List<Food>) results.values);
                 notifyDataSetChanged();
             }
         };
     }
+
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
