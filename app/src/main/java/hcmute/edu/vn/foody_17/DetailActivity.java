@@ -21,12 +21,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class DetailActivity extends AppCompatActivity {
 
     TextView txt_Name,txt_Address,txt_ProvinceShow,txt_AddWifi,txt_Money;
     TextView txt_Menu,txt_Pass;
-    TextView txt_Distance;
+    TextView txt_Distance,txt_Open;
     LocationManager locationManager;
     private static final int REQUEST_LOCATION = 1;
 
@@ -51,6 +54,17 @@ public class DetailActivity extends AppCompatActivity {
         txt_ProvinceShow.setText(intent.getStringExtra("Province"));
         txt_Money.setText(intent.getStringExtra("Price"));
 
+        //Time
+        txt_Open = (TextView) findViewById(R.id.txt_Open);
+        Date date = new Date();   // given date
+        Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+        calendar.setTime(date);   // assigns calendar to given date
+        int hour = calendar.get(Calendar.HOUR_OF_DAY); // gets hour in 24h format
+        int minute = calendar.get(Calendar.MINUTE);
+
+        if((hour >= 8 && minute >= 0) && (hour < 22 && minute <= 60)){
+            txt_Open.setText("Đã Mở Cửa");
+        }
 
         //Menu
         final int id = intent.getIntExtra("IdFood",0);
