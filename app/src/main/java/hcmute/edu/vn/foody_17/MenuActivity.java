@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MenuActivity extends AppCompatActivity {
     private HashMap<String, List<Menu>> listHash;
 
     TextView txt_Anh,txt_Name;
+    ImageView imgv2_Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,16 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+
+
+        //Back
+        imgv2_Back = (ImageView) findViewById(R.id.imgv2_Back);
+        imgv2_Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               finish();
+            }
+        });
     }
 
     private void initData(int id) {

@@ -109,36 +109,78 @@ public class RecyclerViewAdapterProvince extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public Filter getFilter() {
-        return new Filter(){
+
+        return new Filter() {
             @Override
-            protected FilterResults performFiltering(CharSequence constraint){
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String Key = constraint.toString();
                 List<Province> lstFiltered = new ArrayList<>();
 
-                if (constraint == null || constraint.length() == 0){
+                if(Key.isEmpty()){
+                    mDataFilter = mData;
+                }
+                else{
 
-                    lstFiltered.addAll(mData);
-                }else {
                     String key = constraint.toString().toLowerCase().trim();
 
                     for(Province row : mData){
+
                         if(row.getName().toLowerCase().contains(key)){
-                            lstFiltered.add(row);
+
+                                lstFiltered.add(row);
                         }
+
                     }
 
+                    mDataFilter = lstFiltered;
+
                 }
-                FilterResults results = new FilterResults();
-                results.values = lstFiltered;
-                return results;
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mDataFilter;
+                return  filterResults;
             }
 
             @Override
-            protected void publishResults(CharSequence constraint, FilterResults results){
-                mDataFilter.clear();
-                mDataFilter.addAll((List<Province>) results.values);
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+                mDataFilter = ((List<Province>) results.values);
                 notifyDataSetChanged();
             }
         };
+
+
+
+//        return new Filter(){
+//            @Override
+//            protected FilterResults performFiltering(CharSequence constraint){
+//                List<Province> lstFiltered = new ArrayList<>();
+//
+//                if (constraint == null || constraint.length() == 0){
+//
+//                    lstFiltered.addAll(mData);
+//                }else {
+//                    String key = constraint.toString().toLowerCase().trim();
+//
+//                    for(Province row : mData){
+//                        if(row.getName().toLowerCase().contains(key)){
+//                            lstFiltered.add(row);
+//                        }
+//                    }
+//
+//                }
+//                FilterResults results = new FilterResults();
+//                results.values = lstFiltered;
+//                return results;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence constraint, FilterResults results){
+//                mDataFilter.clear();
+//                mDataFilter.addAll((List<Province>) results.values);
+//                notifyDataSetChanged();
+//            }
+//        };
     }
 
 
