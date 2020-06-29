@@ -14,11 +14,14 @@ public class Food {
     private String Price;
     private Double LatiTude;
     private Double LongiTude;
+    private String Account;
+    private String Pass;
+    private String Sdt;
 
     public Food() {
     }
 
-    public Food(Integer idFood,String title, String category, String description, String thumbnail, String address, String province, String typeStore, String price, Double latiTude, Double longiTude) {
+    public Food(Integer idFood,String title, String category, String description, String thumbnail, String address, String province, String typeStore, String price, Double latiTude, Double longiTude, String account, String pass,String sdt) {
         IdFood = idFood;
         Title = title;
         Category = category;
@@ -30,6 +33,9 @@ public class Food {
         Price = price;
         LatiTude = latiTude;
         LongiTude = longiTude;
+        Account = account;
+        Pass = pass;
+        Sdt = sdt;
     }
     public Integer getIdFood(){return IdFood;}
 
@@ -91,5 +97,25 @@ public class Food {
 
     public void setLongiTude(Double longiTude){ LongiTude = longiTude;}
 
+    public String getAccount() {
+        return Account;
+    }
 
+    public void setAccount(String account) {
+        Account = account;
+    }
+
+    public String getPass() {
+        return Pass;
+    }
+
+    public void setPass(String pass) { Pass = pass; }
+
+    public String getSdt() {
+        return Sdt;
+    }
+
+    public void setSdt(String sdt) {
+        Sdt = sdt;
+    }
 }

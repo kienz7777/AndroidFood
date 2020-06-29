@@ -20,7 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     List<Food> lstFood;
-    TextView txtProvince, txtProvincess;
+    TextView txtProvince;
     EditText edt_Search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

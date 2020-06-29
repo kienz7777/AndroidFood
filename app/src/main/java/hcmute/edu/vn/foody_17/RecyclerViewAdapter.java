@@ -64,6 +64,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("Price",mData.get(position).getPrice());
                 intent.putExtra("Lat",mData.get(position).getLatiTude());
                 intent.putExtra("Long",mData.get(position).getLongiTude());
+                intent.putExtra("Account",mData.get(position).getAccount());
+                intent.putExtra("Pass",mData.get(position).getPass());
+                intent.putExtra("Sdt",mData.get(position).getSdt());
                 mContext.startActivity(intent);
             }
         });

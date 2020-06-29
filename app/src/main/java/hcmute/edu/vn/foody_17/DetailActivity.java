@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -30,6 +31,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView txt_Name,txt_Address,txt_ProvinceShow,txt_AddWifi,txt_Money;
     TextView txt_Menu,txt_Pass;
     TextView txt_Distance,txt_Open;
+    Button btn_Contact;
     LocationManager locationManager;
     private static final int REQUEST_LOCATION = 1;
 
@@ -42,7 +44,9 @@ public class DetailActivity extends AppCompatActivity {
         txt_Address = (TextView) findViewById(R.id.txt_Address);
         txt_ProvinceShow = (TextView) findViewById(R.id.txt_ProvinceShow);
         txt_Money = (TextView) findViewById(R.id.txt_Money);
+        txt_AddWifi = (TextView) findViewById(R.id.txt_AddWifi);
         txt_Pass = (TextView) findViewById(R.id.txt_Pass);
+
 
         // Recieve data
         Intent intent = getIntent();
@@ -53,6 +57,12 @@ public class DetailActivity extends AppCompatActivity {
         txt_Address.setText(intent.getStringExtra("Address"));
         txt_ProvinceShow.setText(intent.getStringExtra("Province"));
         txt_Money.setText(intent.getStringExtra("Price"));
+
+        String account = intent.getStringExtra("Account");
+        String pass = intent.getStringExtra("Pass");
+        final String phone = intent.getStringExtra("Sdt");
+
+        //Toast.makeText(DetailActivity.this, phone, Toast.LENGTH_SHORT).show();
 
         //Time
         txt_Open = (TextView) findViewById(R.id.txt_Open);
@@ -84,37 +94,66 @@ public class DetailActivity extends AppCompatActivity {
 //        Toast.makeText(getApplicationContext(),id1,Toast.LENGTH_SHORT).show();
 
         //Wifi
-        txt_AddWifi = (TextView) findViewById(R.id.txt_AddWifi);
-        txt_AddWifi.setOnClickListener(new View.OnClickListener() {
+        if(account == null && pass == null) {
+
+
+            txt_AddWifi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog.Builder mBuilder = new AlertDialog.Builder(DetailActivity.this);
+                    final View mView = getLayoutInflater().inflate(R.layout.dialog_wifi, null);
+                    final EditText mAccount = (EditText) mView.findViewById(R.id.edt_account);        // lấy id từ layout dialog(layout khác)
+                    final EditText mPassword = (EditText) mView.findViewById(R.id.edt_password);
+                    Button mUpdate = (Button) mView.findViewById(R.id.btn_update);
+
+                    mUpdate.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (!mAccount.getText().toString().isEmpty() && !mPassword.getText().toString().isEmpty()) {
+                                //Toast.makeText(DetailActivity.this,"Update Successful",Toast.LENGTH_SHORT).show();
+                                txt_AddWifi.setText(mAccount.getText().toString());
+                                txt_Pass.setText(mPassword.getText().toString());
+                                txt_Pass.setTextColor(Color.parseColor("#3498db"));
+
+                                DatabaseAccess.getInstance(DetailActivity.this).updateWifi();
+//                                AlertDialog dialog = mBuilder.create();
+//                                dialog.cancel();
+                                //finish();
+                            } else {
+                                Toast.makeText(DetailActivity.this, "Update failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                    mBuilder.setView(mView);
+                    AlertDialog dialog = mBuilder.create();
+                    dialog.show();
+
+                }
+            });
+
+        }else {
+            txt_AddWifi.setText(account);
+            txt_Pass.setTextColor(Color.parseColor("#3498db"));
+            txt_Pass.setText(pass);
+        }
+
+        //Liên Hệ
+        btn_Contact = (Button) findViewById(R.id.btn_Contact);
+        btn_Contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(DetailActivity.this);
-                View mView = getLayoutInflater().inflate(R.layout.dialog_wifi,null);
-                final EditText mAccount = (EditText) mView.findViewById(R.id.edt_account);        // lấy id từ layout dialog(layout khác)
-                final EditText mPassword = (EditText) mView.findViewById(R.id.edt_password);
-                Button mUpdate = (Button) mView.findViewById(R.id.btn_update);
+                final AlertDialog.Builder mBuilder = new AlertDialog.Builder(DetailActivity.this);
+                final View mView = getLayoutInflater().inflate(R.layout.dialog_contact, null);
+                final TextView sdt = (TextView) mView.findViewById(R.id.sdt);
 
-                mUpdate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if(!mAccount.getText().toString().isEmpty() && !mPassword.getText().toString().isEmpty()){
-                            //Toast.makeText(DetailActivity.this,"Update Successful",Toast.LENGTH_SHORT).show();
-                            txt_AddWifi.setText(mAccount.getText().toString());
-                            txt_Pass.setText(mPassword.getText().toString());
-                            txt_Pass.setTextColor(Color.parseColor("#3498db"));
-                        }
-                        else{
-                            Toast.makeText(DetailActivity.this,"Update failed",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                sdt.setText(phone);
 
                 mBuilder.setView(mView);
                 AlertDialog dialog = mBuilder.create();
                 dialog.show();
             }
         });
-
 
         //Distance
 
@@ -164,6 +203,13 @@ public class DetailActivity extends AppCompatActivity {
 
                 String str1  = Double.toString(distance) + " km";
                 txt_Distance.setText(str1);
+
+                //Lưu giá trị gps
+                SharedPreferences sharedPref = this.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putFloat("latGPS", (float) latLng);
+                editor.putFloat("longGPS", (float) longLng);
+                editor.commit();
 
             } else {
                 Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show();

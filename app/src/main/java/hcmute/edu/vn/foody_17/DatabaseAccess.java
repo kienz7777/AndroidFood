@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +66,7 @@ public class DatabaseAccess {
     public List<Food> getListFood() {
         this.database = openHelper.getReadableDatabase();
         List<Food> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM Food", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Food WHERE Food.idFood < 100", null);
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
@@ -81,6 +82,9 @@ public class DatabaseAccess {
             food.setPrice(cursor.getString(8));
             food.setLatiTude(cursor.getDouble(9));
             food.setLongiTude(cursor.getDouble(10));
+            food.setAccount(cursor.getString(11));
+            food.setPass(cursor.getString(12));
+            food.setSdt(cursor.getString(13));
 
             list.add(food);
             cursor.moveToNext();
@@ -108,6 +112,9 @@ public class DatabaseAccess {
             food.setPrice(cursor.getString(8));
             food.setLatiTude(cursor.getDouble(9));
             food.setLongiTude(cursor.getDouble(10));
+            food.setAccount(cursor.getString(11));
+            food.setPass(cursor.getString(12));
+            food.setSdt(cursor.getString(13));
 
             list.add(food);
             cursor.moveToNext();
@@ -171,4 +178,29 @@ public class DatabaseAccess {
         cursor.close();
         return list;
     }
+
+    //Chèn mới
+//    public void updateWifi(Integer id,String ac, String pa) {
+//        this.database = openHelper.getWritableDatabase();
+//
+//        String Query = "UPDATE Food SET account ='"+ ac +"',pass= '" + pa + "' WHERE Store.Id= " + id;
+//        //String Query = "UPDATE Food SET account =\"phu\"+ac,pass =\"1234\" WHERE Food.idFood = 2";
+//        SQLiteStatement statement = database.compileStatement(Query);
+//        statement.execute ();
+//
+//
+//    }
+
+    public void updateWifi() {
+        this.database = openHelper.getWritableDatabase();
+
+        //String Query = "UPDATE Food SET account ='"+ ac +"',pass= '" + pa + "' WHERE Store.Id= " + id;
+        String Query = "UPDATE Food SET account =\"phu\",pass =\"1234\" WHERE Food.idFood = 3";
+        SQLiteStatement statement = database.compileStatement(Query);
+        statement.execute ();
+
+
+    }
+
+
 }
